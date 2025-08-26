@@ -1,387 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>You Are The Best Mad 🐵</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You Are The Best Mad 🐵</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
 
-        .container {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
 
-        .welcome-screen {
-            text-align: center;
-            color: white;
-        }
+    .main-content {
+      max-width: 900px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+      text-align: center;
+    }
 
-        .welcome-screen h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
+    .main-content h2 {
+      color: #4a4a4a;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
 
-        .monkey-emoji {
-            font-size: 4rem;
-            animation: bounce 2s infinite;
-            display: inline-block;
-        }
+    .upload-area {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
 
-        .surprise-button {
-            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
-            border: none;
-            padding: 15px 30px;
-            font-size: 1.2rem;
-            color: white;
-            border-radius: 50px;
-            cursor: pointer;
-            margin-top: 30px;
-            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            font-family: inherit;
-        }
+    .upload-circle {
+      cursor: pointer;
+    }
 
-        .surprise-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.2);
-        }
+    .circle-placeholder {
+      width: 180px;
+      height: 180px;
+      border: 3px solid #ff6b6b;
+      border-radius: 50%;
+      background: #f9f9f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+      transition: all 0.3s ease;
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+      position: relative;
+    }
 
-        .main-content {
-            display: none;
-            max-width: 800px;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            backdrop-filter: blur(10px);
-        }
+    .circle-placeholder:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(255, 107, 107, 0.5);
+    }
 
-        .section {
-            margin-bottom: 40px;
-            opacity: 1;
-        }
+    .remove-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: rgba(255, 255, 255, 0.8);
+      border: none;
+      border-radius: 50%;
+      width: 25px;
+      height: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      display: none;
+    }
 
-        .section h2 {
-            color: #4a4a4a;
-            font-size: 2rem;
-            margin-bottom: 20px;
-            text-align: center;
-        }
+    .circle-placeholder.has-image .remove-btn {
+      display: block;
+    }
 
-        .photo-placeholder {
-            width: 200px;
-            height: 200px;
-            border: 3px dashed #ddd;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 30px;
-            background: #f9f9f9;
-            font-size: 1rem;
-            color: #666;
-            text-align: center;
-        }
-
-        .letter {
-            background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
-            padding: 30px;
-            border-radius: 15px;
-            border-left: 5px solid #e17055;
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #2d3436;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .qualities-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .quality-card {
-            background: linear-gradient(135deg, #a8edea, #fed6e3);
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
-
-        .quality-card:hover {
-            transform: scale(1.05);
-        }
-
-        .quality-card .emoji {
-            font-size: 2rem;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .memory-lane {
-            background: linear-gradient(135deg, #ffecd2, #fcb69f);
-            padding: 30px;
-            border-radius: 15px;
-            margin-top: 20px;
-        }
-
-        .memory-item {
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .floating-hearts {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .heart {
-            position: absolute;
-            color: rgba(255, 182, 193, 0.7);
-            font-size: 20px;
-            animation: float 6s infinite ease-in-out;
-        }
-
-        .back-button {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background: rgba(255, 255, 255, 0.8);
-            border: none;
-            padding: 10px 20px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-family: inherit;
-            transition: all 0.3s ease;
-        }
-
-        .back-button:hover {
-            background: white;
-            transform: translateY(-2px);
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: scale(0.8); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        @keyframes bounce {
-            0%, 20%, 60%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-30px); }
-            80% { transform: translateY(-15px); }
-        }
-
-        @keyframes float {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
-        }
-
-        @media (max-width: 768px) {
-            .welcome-screen h1 { font-size: 2rem; }
-            .main-content { padding: 20px; margin: 10px; }
-            .qualities-grid { grid-template-columns: 1fr; }
-        }
-    </style>
+    p.note {
+      text-align: center;
+      color: #666;
+      font-style: italic;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
-    <div class="floating-hearts" id="hearts"></div>
-    
-    <div class="container">
-        <div class="welcome-screen" id="welcome">
-            <h1>Hey there, beautiful soul! 🌟</h1>
-            <div class="monkey-emoji">🐵</div>
-            <p style="font-size: 1.2rem; margin: 20px 0;">Someone very special wanted you to see this...</p>
-            <button class="surprise-button" onclick="showSurprise()">Click me for a surprise! 🎁</button>
-        </div>
+  <div class="container">
+    <div class="main-content">
+      <h2>Look at this beautiful person! 📸</h2>
+      <div class="upload-area">
+        <!-- Upload Box 1 -->
+        <label class="upload-circle">
+          <input type="file" accept="image/*" onchange="previewImage(event, 'img1')" hidden>
+          <div id="img1" class="circle-placeholder">
+            Traditional<br>Beauty<br><small>(Upload image 1)</small>
+            <button class="remove-btn" onclick="removeImage('img1', event)">×</button>
+          </div>
+        </label>
 
-        <div class="main-content" id="mainContent">
-            <button class="back-button" onclick="goBack()">← Back</button>
-            
-            <div class="section">
-                <h2>Look at this beautiful Mad! 📸</h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; margin: 20px 0;">
-                    <div style="text-align: center;">
-                        <div style="width: 150px; height: 150px; border: 3px solid #ff6b6b; border-radius: 50%; margin: 0 auto 10px; background: #f0f0f0; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; color: #666; background-image: url('photo1.jpg'); background-size: cover; background-position: center;">
-                        </div>
-                        <p style="font-size: 0.9rem; color: #666;">Beautiful Mad 💕</p>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="width: 150px; height: 150px; border: 3px solid #ff6b6b; border-radius: 50%; margin: 0 auto 10px; background: #f0f0f0; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; color: #666; background-image: url('photo2.jpg'); background-size: cover; background-position: center;">
-                        </div>
-                        <p style="font-size: 0.9rem; color: #666;">Sweet Putta 🌟</p>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="width: 150px; height: 150px; border: 3px solid #ff6b6b; border-radius: 50%; margin: 0 auto 10px; background: #f0f0f0; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; color: #666; background-image: url('photo3.jpg'); background-size: cover; background-position: center;">
-                        </div>
-                        <p style="font-size: 0.9rem; color: #666;">Playful Monkey 🐵</p>
-                    </div>
-                </div>
-                <p style="text-align: center; color: #666; font-style: italic; margin-top: 20px;">
-                    Every photo captures your beautiful spirit - my dearest Mad, sweetest Putta, most playful Monkey! 🌟
-                </p>
-            </div>
+        <!-- Upload Box 2 -->
+        <label class="upload-circle">
+          <input type="file" accept="image/*" onchange="previewImage(event, 'img2')" hidden>
+          <div id="img2" class="circle-placeholder">
+            Radiant<br>Smile<br><small>(Upload image 2)</small>
+            <button class="remove-btn" onclick="removeImage('img2', event)">×</button>
+          </div>
+        </label>
 
-            <div class="section">
-                <h2>A Letter Just for You 💕</h2>
-                <div class="letter">
-                    <p>My dearest Monkey,</p>
-                    <br>
-                    <p>I know life feels overwhelming right now, and it seems like no matter how hard you try, things keep getting stuck. But I need you to know something - you are absolutely incredible, and this rough patch doesn't define you.</p>
-                    <br>
-                    <p>You are one of the most beautiful souls I know, both inside and out. Your heart is pure gold, your smile lights up entire rooms, and your strength (even when you don't feel strong) inspires everyone around you. You're like a little monkey - playful, curious, and always bringing joy to others, even when you're struggling yourself.</p>
-                    <br>
-                    <p>I see how hard you're working, how much effort you put into everything you do. You are the BEST daughter anyone could ask for - not because of money or earnings, but because of your beautiful heart, your dedication, and the love you give to everyone around you. Your worth isn't measured by your paycheck; it's measured by the incredible person you are.</p>
-                    <br>
-                    <p>You work so hard, you care so deeply, and you deserve ALL the happiness in the world. You deserve success, joy, love, and every beautiful thing life has to offer. Don't let anyone (including yourself) make you feel otherwise.</p>
-                    <br>
-                    <p>Sometimes the universe tests the best people the most, but I promise you - this is temporary. You're going to break through these barriers, and when you do, you'll be even more amazing than you already are.</p>
-                    <br>
-                    <p>You matter more than you know. You're loved more than you realize. And you're going to achieve incredible things - I believe in you completely.</p>
-                    <br>
-                    <p>Never forget: You are beautiful. You are strong. You are enough. You are the BEST daughter. You deserve happiness. And you are absolutely AMAZING! 🌟</p>
-                    <br>
-                    <p>With all my love and endless belief in you,<br>Your biggest fan who thinks you're the most wonderful person in the world 💝</p>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>Why You're Amazing 🌈</h2>
-                <div class="qualities-grid">
-                    <div class="quality-card" onclick="showMessage(this, 'Your kindness touches everyone you meet!')">
-                        <span class="emoji">💝</span>
-                        <strong>Incredibly Kind</strong>
-                    </div>
-                    <div class="quality-card" onclick="showMessage(this, 'You never give up, even when things get tough!')">
-                        <span class="emoji">💪</span>
-                        <strong>Super Strong</strong>
-                    </div>
-                    <div class="quality-card" onclick="showMessage(this, 'Your smile is like sunshine on a cloudy day!')">
-                        <span class="emoji">☀️</span>
-                        <strong>Radiantly Beautiful</strong>
-                    </div>
-                    <div class="quality-card" onclick="showMessage(this, 'You are the most wonderful daughter - your love and care mean everything!')">
-                        <span class="emoji">👑</span>
-                        <strong>Best Daughter Ever</strong>
-                    </div>
-                    <div class="quality-card" onclick="showMessage(this, 'You work so hard every single day - your dedication is incredible!')">
-                        <span class="emoji">⚡</span>
-                        <strong>Hardworking Champion</strong>
-                    </div>
-                    <div class="quality-card" onclick="showMessage(this, 'You deserve all the happiness, success, and beautiful things in life!')">
-                        <span class="emoji">🎁</span>
-                        <strong>Deserves Everything</strong>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>Remember These Moments 📝</h2>
-                <div class="memory-lane">
-                    <div class="memory-item">
-                        <strong>💖 Your loving nature as a daughter</strong> - The way you care for family shows your beautiful heart
-                    </div>
-                    <div class="memory-item">
-                        <strong>💪 Every single day you work hard</strong> - Your dedication and effort inspire everyone around you
-                    </div>
-                    <div class="memory-item">
-                        <strong>🌟 All the times you've overcome challenges</strong> - You're stronger than you realize
-                    </div>
-                    <div class="memory-item">
-                        <strong>😄 Your infectious laughter and joy</strong> - You bring happiness wherever you go
-                    </div>
-                    <div class="memory-item">
-                        <strong>🎯 Your dreams and ambitions</strong> - You deserve to achieve every single one of them
-                    </div>
-                    <div class="memory-item">
-                        <strong>🐵 Your playful monkey spirit</strong> - Never lose that beautiful, fun-loving side of you
-                    </div>
-                </div>
-            </div>
-        </div>
+        <!-- Upload Box 3 -->
+        <label class="upload-circle">
+          <input type="file" accept="image/*" onchange="previewImage(event, 'img3')" hidden>
+          <div id="img3" class="circle-placeholder">
+            Family<br>Joy<br><small>(Upload image 3)</small>
+            <button class="remove-btn" onclick="removeImage('img3', event)">×</button>
+          </div>
+        </label>
+      </div>
+      <p class="note">
+        Every photo captures your beautiful spirit and that infectious smile that lights up every room! 🌟
+      </p>
     </div>
+  </div>
 
-    <script>
-        function showSurprise() {
-            document.getElementById('welcome').style.display = 'none';
-            document.getElementById('mainContent').style.display = 'block';
-            createFloatingHearts();
-        }
+  <script>
+    function previewImage(event, id) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const placeholder = document.getElementById(id);
+          placeholder.style.backgroundImage = `url('${e.target.result}')`;
+          placeholder.innerHTML = `<button class="remove-btn" onclick="removeImage('${id}', event)">×</button>`;
+          placeholder.classList.add("has-image");
+        };
+        reader.readAsDataURL(file);
+      }
+    }
 
-        function goBack() {
-            document.getElementById('mainContent').style.display = 'none';
-            document.getElementById('welcome').style.display = 'block';
-        }
-
-        function showMessage(card, message) {
-            const originalContent = card.innerHTML;
-            card.innerHTML = `<div style="font-size: 0.9rem; padding: 10px;">${message}</div>`;
-            card.style.background = 'linear-gradient(135deg, #ff9a9e, #fecfef)';
-            
-            setTimeout(() => {
-                card.innerHTML = originalContent;
-                card.style.background = 'linear-gradient(135deg, #a8edea, #fed6e3)';
-            }, 3000);
-        }
-
-        function createFloatingHearts() {
-            const heartsContainer = document.getElementById('hearts');
-            const hearts = ['💕', '💖', '💝', '🌟', '✨', '🐵'];
-            
-            setInterval(() => {
-                const heart = document.createElement('div');
-                heart.className = 'heart';
-                heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.animationDelay = Math.random() * 2 + 's';
-                heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
-                heartsContainer.appendChild(heart);
-                
-                setTimeout(() => {
-                    heart.remove();
-                }, 7000);
-            }, 500);
-        }
-
-        // Start with some initial floating elements
-        setTimeout(createFloatingHearts, 1000);
-    </script>
+    function removeImage(id, event) {
+      event.stopPropagation();
+      const placeholder = document.getElementById(id);
+      placeholder.style.backgroundImage = "none";
+      placeholder.innerHTML = placeholder.id === "img1"
+        ? "Traditional<br>Beauty<br><small>(Upload image 1)</small><button class='remove-btn' onclick=\"removeImage('img1', event)\">×</button>"
+        : placeholder.id === "img2"
+        ? "Radiant<br>Smile<br><small>(Upload image 2)</small><button class='remove-btn' onclick=\"removeImage('img2', event)\">×</button>"
+        : "Family<br>Joy<br><small>(Upload image 3)</small><button class='remove-btn' onclick=\"removeImage('img3', event)\">×</button>";
+      placeholder.classList.remove("has-image");
+    }
+  </script>
 </body>
 </html>
