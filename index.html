@@ -2,90 +2,85 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Photo Showcase</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You Are The Best Mad</title>
   <style>
     body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ff7eb3, #ff758c, #ff9472);
+      color: white;
       text-align: center;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      background: #f8f9ff;
+      flex-direction: column;
     }
 
     h1 {
-      font-size: 28px;
-      margin-top: 20px;
+      font-size: 3rem;
+      margin-bottom: 40px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
     }
 
-    .circle-container {
+    .photos {
       display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
       justify-content: center;
-      gap: 50px;
-      margin: 30px 0;
+      margin-bottom: 40px;
     }
 
     .circle {
-      width: 160px;
-      height: 160px;
-      border: 4px solid red;
+      width: 220px;
+      height: 220px;
       border-radius: 50%;
       overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #f3f3f3;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      position: relative;
+      border: 6px solid white;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .circle:hover {
+      transform: scale(1.1);
     }
 
     .circle img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
 
-    .label {
-      margin-top: 12px;
-      font-weight: bold;
-      font-size: 14px;
-    }
-
-    .caption {
-      margin-top: 25px;
-      font-size: 18px;
-      font-style: italic;
-      color: #555;
+    p {
+      font-size: 1.3rem;
+      max-width: 600px;
+      line-height: 1.6;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.4);
     }
   </style>
 </head>
 <body>
+  <h1>💖 You Are The Best Mad 💖</h1>
 
-  <h1>📸 Look at this beautiful person! 📸</h1>
-
-  <div class="circle-container">
-    <div>
-      <div class="circle">
-        <img src="photo1.jpg" alt="Traditional Beauty">
-      </div>
-      <div class="label">Traditional Beauty</div>
+  <div class="photos">
+    <div class="circle">
+      <img src="photo1.jpg" alt="Photo 1">
     </div>
-
-    <div>
-      <div class="circle">
-        <img src="photo2.jpg" alt="Radiant Smile">
-      </div>
-      <div class="label">Radiant Smile</div>
+    <div class="circle">
+      <img src="photo2.jpg" alt="Photo 2">
     </div>
-
-    <div>
-      <div class="circle">
-        <img src="photo3.jpg" alt="Family Joy">
-      </div>
-      <div class="label">Family Joy</div>
+    <div class="circle">
+      <img src="photo3.jpg" alt="Photo 3">
     </div>
   </div>
 
-  <div class="caption">
-    Every photo captures your beautiful spirit and that infectious smile that lights up every room! ✨
-  </div>
-
+  <p>
+    This page is made specially with love ❤️  
+    Beautiful memories captured in 3 moments.  
+    Always shining, always inspiring ✨  
+  </p>
 </body>
 </html>
