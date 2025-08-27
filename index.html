@@ -2,127 +2,153 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Sheetal Arora - Mr. Cooper</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You are the Best, Mad ❤️</title>
   <style>
     body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
       margin: 0;
-      font-family: 'Georgia', serif;
-      background: #f8e9ef;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      overflow: hidden;
+      padding: 0;
+      background-color: #ffe6f0;
+      color: #333;
+      text-align: center;
     }
-
-    .book {
-      width: 80%;
-      height: 90%;
-      perspective: 2000px;
-      position: relative;
-    }
-
-    .page {
-      width: 50%;
-      height: 100%;
-      background: #fff;
-      box-shadow: 0 0 20px rgba(0,0,0,0.2);
-      position: absolute;
+    header {
+      background-color: #ff99cc;
+      padding: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+      position: sticky;
       top: 0;
-      transition: transform 1s ease;
-      transform-origin: left;
-      overflow: auto;
-      padding: 40px;
-      box-sizing: border-box;
+      z-index: 1000;
     }
-
-    .page h1 {
-      text-align: center;
-      font-size: 2.5rem;
-      color: #e91e63;
+    section {
+      padding: 40px 20px;
     }
-
-    .page h2 {
-      text-align: center;
-      color: #9c27b0;
+    h2 {
+      color: #ff4da6;
       margin-bottom: 20px;
     }
-
-    .page img {
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+    .gallery img {
       width: 100%;
-      max-width: 250px;
       border-radius: 15px;
-      margin: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
     }
-
-    .grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+    .gallery img:hover {
+      transform: scale(1.05);
     }
-
-    .cover {
-      background: #ffdde1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .cover h1 {
-      font-size: 3rem;
-      color: #d81b60;
-    }
-
-    .cover h2 {
-      margin-top: 10px;
-      font-size: 1.5rem;
-      color: #880e4f;
-    }
-
-    .page.right {
-      right: 0;
-      transform-origin: right;
-    }
-
-    .page.flipped {
-      transform: rotateY(-180deg);
-    }
-
-    .page.right.flipped {
-      transform: rotateY(180deg);
-    }
-
-    .nav-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 2rem;
-      background: rgba(255,255,255,0.7);
-      border: none;
+    .clickable {
       cursor: pointer;
-      padding: 10px;
-      border-radius: 50%;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      color: #ff3399;
+      font-weight: bold;
+      text-decoration: underline;
     }
-
-    .prev { left: -60px; }
-    .next { right: -60px; }
+    .hidden-message {
+      display: none;
+      margin-top: 10px;
+      font-size: 18px;
+      color: #cc0066;
+    }
+    footer {
+      background-color: #ff99cc;
+      padding: 15px;
+      color: white;
+    }
+    .dream-box {
+      background: #fff0f5;
+      border-radius: 20px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 700px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    }
   </style>
 </head>
 <body>
-  <div class="book" id="book">
-    <!-- Cover Page -->
-    <div class="page cover">
-      <h1>SHEETAL ARORA</h1>
-      <h2>Company: Mr. Cooper ❤️</h2>
-    </div>
 
-    <!-- Memories Page -->
-    <div class="page right">
-      <h1>📸 Our Memories</h1>
-      <div class="grid">
-        <img src="04b02da4-a2c8-42a6-98d5-e41e54cdc374.png" alt="Memory 1">
-        <img src="eb84df20-0045-474b-b078-0364053275c0.png" alt="Memory 2">
-        <img src="6b6c85fa-ac09-4481-93
+<header>
+  You are the Best, Mad ❤️ | My Monkey | My Putta
+</header>
+
+<section>
+  <h2>Our Story 📖</h2>
+  <p>It all started when you gave me a book... That moment turned into the most beautiful friendship ❤️.</p>
+  <p>You were always there for me, through everything. That’s why you are my world.</p>
+</section>
+
+<section>
+  <h2>Our Memories 📸</h2>
+  <div class="gallery">
+    <img src="Photo11.jpg">
+    <img src="Photo12.jpg">
+    <img src="Photo13.jpg">
+    <img src="Photo14.jpg">
+    <img src="Photo15.jpg">
+    <img src="Photo16.jpg">
+    <img src="Photo17.jpg">
+    <img src="Photo18.jpg">
+    <img src="Photo19.jpg">
+    <img src="Photo20.jpg">
+  </div>
+</section>
+
+<section>
+  <h2>Her Cuteness 😍</h2>
+  <p>Her smile, her eyes, her little expressions... everything makes my heart melt. You are my <span class="clickable" onclick="showMessage('msgMonkey')">monkey</span>, my <span class="clickable" onclick="showMessage('msgMad')">mad</span>, my <span class="clickable" onclick="showMessage('msgPutta')">putta</span> ❤️.</p>
+  
+  <div class="gallery">
+    <img src="photo21.jpg">
+    <img src="photo22.jpg">
+    <img src="photo23.jpg">
+    <img src="photo24.jpg">
+    <img src="photo25.jpg">
+    <img src="photo26.jpg">
+    <img src="photo27.jpg">
+    <img src="photo28.jpg">
+    <img src="photo29.jpg">
+    <img src="photo30.jpg">
+  </div>
+
+  <div id="msgMonkey" class="hidden-message">I love you monkey fellowww 🐒❤️</div>
+  <div id="msgMad" class="hidden-message">Maaaaaad pleaseee 🥺❤️</div>
+  <div id="msgPutta" class="hidden-message">My sweet little putta ❤️</div>
+</section>
+
+<section>
+  <h2>How You Annoy Me 😅</h2>
+  <p>You say “I will go home… bye” 😒</p>
+  <p>You say “Good night in advance” 🌙</p>
+  <p>You tease me with “Kaaaaaantiiiiiii feeeever” 🤒😂</p>
+  <p>And still, I can’t stop loving you ❤️</p>
+</section>
+
+<section>
+  <h2>Our Future Dreams 🌈</h2>
+  <div class="dream-box">
+    <p>We’ll build a beautiful life together...</p>
+    <p>We’ll have our babies 👶❤️</p>
+    <p>We’ll laugh, cry, and grow old together 👴👵</p>
+    <p>Every single moment will be with you ❤️</p>
+  </div>
+</section>
+
+<footer>
+  Forever Yours ❤️ <br> Made with love, just for my Mad 💕
+</footer>
+
+<script>
+  function showMessage(id) {
+    let msg = document.getElementById(id);
+    msg.style.display = (msg.style.display === "block") ? "none" : "block";
+  }
+</script>
+
+</body>
+</html>
