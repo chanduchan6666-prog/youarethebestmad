@@ -2,173 +2,127 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>For My Mad 💖</title>
+  <title>Sheetal Arora - Mr. Cooper</title>
   <style>
     body {
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      background: linear-gradient(135deg, #ffd6e8, #ffe6f0);
       margin: 0;
-      padding: 0;
-      color: #333;
+      font-family: 'Georgia', serif;
+      background: #f8e9ef;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
     }
-    header {
+
+    .book {
+      width: 80%;
+      height: 90%;
+      perspective: 2000px;
+      position: relative;
+    }
+
+    .page {
+      width: 50%;
+      height: 100%;
+      background: #fff;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      position: absolute;
+      top: 0;
+      transition: transform 1s ease;
+      transform-origin: left;
+      overflow: auto;
+      padding: 40px;
+      box-sizing: border-box;
+    }
+
+    .page h1 {
       text-align: center;
-      background: #ff80b5;
-      color: white;
-      padding: 20px;
-      font-size: 2em;
+      font-size: 2.5rem;
+      color: #e91e63;
     }
-    section {
-      padding: 30px;
-      margin: 20px auto;
-      border-radius: 15px;
-      width: 90%;
-      background: white;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    h2 {
+
+    .page h2 {
       text-align: center;
-      color: #ff4081;
+      color: #9c27b0;
+      margin-bottom: 20px;
     }
-    .surprise {
-      background: #ffe6f0;
-      padding: 20px;
-      border-radius: 15px;
-      text-align: center;
-      margin: 20px 0;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .surprise:hover {
-      background: #ffcce0;
-      transform: scale(1.05);
-    }
-    .hidden {
-      display: none;
-      margin-top: 10px;
-      font-weight: bold;
-      color: #d63384;
-    }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .photo {
-      background: #f9f9f9;
-      padding: 10px;
-      border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-    .photo:hover {
-      transform: scale(1.05);
-    }
-    .photo img {
+
+    .page img {
       width: 100%;
-      border-radius: 10px;
+      max-width: 250px;
+      border-radius: 15px;
+      margin: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
+
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .cover {
+      background: #ffdde1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cover h1 {
+      font-size: 3rem;
+      color: #d81b60;
+    }
+
+    .cover h2 {
+      margin-top: 10px;
+      font-size: 1.5rem;
+      color: #880e4f;
+    }
+
+    .page.right {
+      right: 0;
+      transform-origin: right;
+    }
+
+    .page.flipped {
+      transform: rotateY(-180deg);
+    }
+
+    .page.right.flipped {
+      transform: rotateY(180deg);
+    }
+
+    .nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      background: rgba(255,255,255,0.7);
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .prev { left: -60px; }
+    .next { right: -60px; }
   </style>
 </head>
 <body>
-
-<header>
-  For My Mad 💕 (My Monkey, My Putta)
-</header>
-
-<section id="about">
-  <h2>How We Met</h2>
-  <p>
-    Everything started the day you gave me that book 📖.  
-    That moment became a beautiful friendship… and then something so much more.  
-    You were always there for me, through every silly laugh, every annoyance, and every care. 💖
-  </p>
-</section>
-
-<section id="nicknames">
-  <h2>My Cute Names for You 😘</h2>
-  <div class="surprise" onclick="showText('madText')">Click me, Mad 👉</div>
-  <p id="madText" class="hidden">Maaaaad pleaaaseee… you know how much I love you ❤️</p>
-
-  <div class="surprise" onclick="showText('monkeyText')">Click me, Monkey 🐵</div>
-  <p id="monkeyText" class="hidden">I love you monkey fellowww 🤭</p>
-
-  <div class="surprise" onclick="showText('puttaText')">Click me, Putta 💕</div>
-  <p id="puttaText" class="hidden">My sweetest puttaaa… forever mine 💖</p>
-</section>
-
-<section id="annoying">
-  <h2>How You Annoy Me (But I Still Love It 🤦‍♂️)</h2>
-  <ul>
-    <li>When you suddenly say: “I will go home… byeeeee” 🏃‍♀️💨</li>
-    <li>When you say “Good night in advance” at 6 PM 🌙😆</li>
-    <li>When you scream: “Kaaaaaaantiiiiiiiii feeeveeeeer” 🤒🤣</li>
-    <li>When you get upset and I’m left saying: “Maaaaaad pleaaaseee” 🥺💗</li>
-  </ul>
-</section>
-
-<section id="love">
-  <h2>What You Mean To Me ❤️</h2>
-  <p>
-    I love listening to your voice 🎶,  
-    watching your silly and cute expressions 🥰,  
-    and living every little moment with you.  
-    You are my safe place, my laughter, and my everything 💕.
-  </p>
-</section>
-
-<section id="memories">
-  <h2>📸 Our Memories Together</h2>
-  <div class="gallery">
-    <div class="photo">
-      <img src="images/memory11.jpg" alt="Memory 11">
-      <p>That book you gave me… the start of everything ❤️</p>
+  <div class="book" id="book">
+    <!-- Cover Page -->
+    <div class="page cover">
+      <h1>SHEETAL ARORA</h1>
+      <h2>Company: Mr. Cooper ❤️</h2>
     </div>
-    <div class="photo">
-      <img src="images/memory12.jpg" alt="Memory 12">
-      <p>Our crazy little adventure 😍</p>
-    </div>
-    <div class="photo">
-      <img src="images/memory13.jpg" alt="Memory 13">
-      <p>Your smile here drives me mad 🤭</p>
-    </div>
-    <div class="photo">
-      <img src="images/memory14.jpg" alt="Memory 14">
-      <p>That day was unforgettable ✨</p>
-    </div>
-    <!-- Add up to memory20.jpg -->
-  </div>
-</section>
 
-<section id="cuteness">
-  <h2>💖 Her Cuteness Overload 💖</h2>
-  <div class="gallery">
-    <div class="photo">
-      <img src="images/memory21.jpg" alt="Her 21">
-      <p>Her silly little expression 🥺 (how cutee)</p>
-    </div>
-    <div class="photo">
-      <img src="images/memory22.jpg" alt="Her 22">
-      <p>Look at this face 😍</p>
-    </div>
-    <div class="photo">
-      <img src="images/memory23.jpg" alt="Her 23">
-      <p>Cutest monkey fellow 🤭</p>
-    </div>
-    <div class="photo">
-      <img src="images/memory24.jpg" alt="Her 24">
-      <p>How can someone be this cute 💕</p>
-    </div>
-    <!-- Add up to memory30.jpg -->
-  </div>
-</section>
-
-<script>
-  function showText(id) {
-    const el = document.getElementById(id);
-    el.style.display = (el.style.display === "block") ? "none" : "block";
-  }
-</script>
-
-</body>
-</html>
+    <!-- Memories Page -->
+    <div class="page right">
+      <h1>📸 Our Memories</h1>
+      <div class="grid">
+        <img src="04b02da4-a2c8-42a6-98d5-e41e54cdc374.png" alt="Memory 1">
+        <img src="eb84df20-0045-474b-b078-0364053275c0.png" alt="Memory 2">
+        <img src="6b6c85fa-ac09-4481-93
