@@ -3,166 +3,169 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>For My Love ❤️</title>
+  <title>You Are My Everything ❤️</title>
   <style>
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad390);
-      color: #fff;
-      overflow-x: hidden;
+      background: #fff0f5;
+      color: #333;
     }
-
     header {
       text-align: center;
-      padding: 80px 20px;
-      background: rgba(0,0,0,0.5);
+      padding: 60px 20px;
+      background: linear-gradient(45deg, #ff99cc, #ff66b2);
+      color: white;
     }
-
     header h1 {
-      font-size: 3.5rem;
-      text-shadow: 3px 3px 8px rgba(0,0,0,0.5);
+      font-size: 3rem;
+      margin: 0;
     }
-
-    header p {
-      font-size: 1.5rem;
-      margin-top: 15px;
-    }
-
     section {
       padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      color: #ff3399;
       text-align: center;
-    }
-
-    section h2 {
-      font-size: 2.5rem;
       margin-bottom: 30px;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
     }
-
     .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
       gap: 20px;
     }
-
-    .gallery img, .gallery video {
-      width: 300px;
-      height: 300px;
+    .gallery img {
+      width: 100%;
       border-radius: 20px;
-      object-fit: cover;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
       transition: transform 0.3s ease;
     }
-
-    .gallery img:hover, .gallery video:hover {
+    .gallery img:hover {
       transform: scale(1.05);
     }
-
-    .dream {
-      max-width: 700px;
-      margin: auto;
-      font-size: 1.3rem;
-      line-height: 1.7;
-      text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
-    }
-
-    .timeline {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 25px;
-    }
-
-    .step {
-      background: rgba(0,0,0,0.6);
-      padding: 20px;
-      border-radius: 20px;
-      width: 80%;
-      max-width: 600px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.4);
-    }
-
-    .step h3 {
-      margin-bottom: 10px;
-      color: #ffeaa7;
-    }
-
-    footer {
-      background: rgba(0,0,0,0.8);
-      padding: 40px 20px;
+    .click-surprise {
       text-align: center;
+      margin: 20px 0;
     }
-
-    footer h2 {
-      font-size: 2rem;
-      margin-bottom: 15px;
+    button {
+      background: #ff66b2;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s ease;
     }
-
-    footer p {
+    button:hover {
+      background: #ff3399;
+    }
+    .hidden-message {
+      display: none;
+      margin-top: 15px;
       font-size: 1.2rem;
+      color: #cc0066;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #ff99cc;
+      color: white;
     }
   </style>
+  <script>
+    function showMessage(id) {
+      document.getElementById(id).style.display = 'block';
+    }
+  </script>
 </head>
 <body>
   <header>
-    <h1>💖 She is the Most Special Person 💖</h1>
-    <p>Her smile, her eyes, her cuteness, her everything…</p>
+    <h1>You are the Best, Mad ❤️</h1>
+    <p>My monkey… my putta… my everything!</p>
   </header>
 
   <section>
-    <h2>🌸 Our Beautiful Memories 🌸</h2>
+    <h2>✨ How We Met ✨</h2>
+    <p>
+      It all started when you gave me a book 📖… and that turned into one of the best friendships of my life.  
+      You were always there for me, always supporting me, always making me smile.  
+      And then, friendship turned into love ❤️.
+    </p>
+  </section>
+
+  <section>
+    <h2>📸 Our Memories Together</h2>
     <div class="gallery">
-      <img src="photo1.jpg" alt="Her Smile">
-      <img src="photo2.jpg" alt="Her Eyes">
-      <img src="photo3.jpg" alt="Her Cuteness">
-      <video src="video.mp4" controls></video>
-      <!-- Add as many pics & videos as you want -->
+      <img src="photo11.jpg" alt="Memory 1">
+      <img src="photo12.jpg" alt="Memory 2">
+      <img src="photo13.jpg" alt="Memory 3">
+      <img src="photo14.jpg" alt="Memory 4">
+      <img src="photo15.jpg" alt="Memory 5">
+      <img src="photo16.jpg" alt="Memory 6">
+      <img src="photo17.jpg" alt="Memory 7">
+      <img src="photo18.jpg" alt="Memory 8">
+      <img src="photo19.jpg" alt="Memory 9">
+      <img src="photo20.jpg" alt="Memory 10">
     </div>
   </section>
 
   <section>
-    <h2>💭 Why She is My Dream 💭</h2>
-    <div class="dream">
-      <p>
-        When I see her smile, I see my whole world light up.  
-        When I look into her eyes, I see my future.  
-        Her cuteness melts my heart every single time.  
-        She is my happiness, my strength, my forever.  
-      </p>
+    <h2>😍 Your Cuteness</h2>
+    <p>
+      Your smile that melts my heart, your eyes that speak a thousand words,  
+      your voice that makes my day, and your cute little expressions that I can never forget.  
+      You are my cuteness overload ❤️
+    </p>
+    <div class="gallery">
+      <img src="photo21.jpg" alt="Her cute smile">
+      <img src="photo22.jpg" alt="Her eyes">
+      <img src="photo23.jpg" alt="Her laughter">
+      <img src="photo24.jpg" alt="Her look">
+      <img src="photo25.jpg" alt="Her cuteness">
+      <img src="photo26.jpg" alt="Her beauty">
+      <img src="photo27.jpg" alt="Her fun">
+      <img src="photo28.jpg" alt="Her charm">
+      <img src="photo29.jpg" alt="Her love">
+      <img src="photo30.jpg" alt="Her magic">
     </div>
   </section>
 
   <section>
-    <h2>✨ Our Life Together ✨</h2>
-    <div class="timeline">
-      <div class="step">
-        <h3>❤️ Falling in Love</h3>
-        <p>From the very first moment, I knew it was her… forever.</p>
-      </div>
-      <div class="step">
-        <h3>👩‍❤️‍👨 Building Our Life</h3>
-        <p>Hand in hand, through every struggle, every joy, every dream.</p>
-      </div>
-      <div class="step">
-        <h3>👶 Our Baby</h3>
-        <p>The most beautiful creation of our love, our little angel.</p>
-      </div>
-      <div class="step">
-        <h3>🏡 Our Home</h3>
-        <p>A place filled with love, laughter, and endless memories.</p>
-      </div>
-      <div class="step">
-        <h3>👵👴 Growing Old Together</h3>
-        <p>Still holding hands, still looking at each other like day one.</p>
-      </div>
+    <h2>💌 Fun & Annoying Things You Do 😆</h2>
+    <div class="click-surprise">
+      <button onclick="showMessage('msg1')">Click Me 😉</button>
+      <div id="msg1" class="hidden-message">I love you monkey fellowww 🐒❤️</div>
     </div>
+    <div class="click-surprise">
+      <button onclick="showMessage('msg2')">Another Click 😏</button>
+      <div id="msg2" class="hidden-message">Maaaaad pleaaaseee 😢 when you are upset!</div>
+    </div>
+    <div class="click-surprise">
+      <button onclick="showMessage('msg3')">One More 😜</button>
+      <div id="msg3" class="hidden-message">Byeeeee in advance 🙄😂 … Good night before evening!</div>
+    </div>
+    <div class="click-surprise">
+      <button onclick="showMessage('msg4')">Suspense Click 😈</button>
+      <div id="msg4" class="hidden-message">Kaaaaaaaaaantiiiiiiii feeeeeever 🤒😂</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>🌸 Our Future Together</h2>
+    <p>
+      I imagine us building a beautiful life together — laughing, fighting, loving.  
+      Having our little baby 👶, making a home filled with love,  
+      and growing old together while still calling you my mad monkey putta ❤️.  
+      Forever and always.
+    </p>
   </section>
 
   <footer>
-    <h2>💍 Forever & Always 💍</h2>
-    <p>You are my dream, my everything. This love is infinite. 💖</p>
+    <p>Made with ❤️ only for you, my Mad 🥰</p>
   </footer>
 </body>
 </html>
